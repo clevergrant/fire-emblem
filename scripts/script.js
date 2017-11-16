@@ -37,7 +37,7 @@ $(() => {
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
 
 			function addItem(key, obj) {
-				if ("Bits" in obj) {
+				if (obj.hasOwnProperty("Bits")) {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
 						.replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{KEY}}", key)
