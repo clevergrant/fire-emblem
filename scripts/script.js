@@ -53,7 +53,7 @@ $(() => {
 
 			for (let key in baseSlot) {
 				console.log("Key: " + key);
-				console.log("Obj: " + baseSlot[key]);
+				console.log("Obj: ", baseSlot[key]);
 				addItem(key, baseSlot[key]);
 				first = false;
 			}
