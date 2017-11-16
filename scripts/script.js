@@ -17,6 +17,8 @@ $(() => {
 		let classes = dataArr[2];
 		let baseSlot = dataArr[3];
 
+
+
 		let Templates = {};
 		Templates.pill = dataArr[4];
 		Templates.pane = dataArr[5];
@@ -33,6 +35,7 @@ $(() => {
 			$("#v-pills-tab").append(thispill);
 
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
+
 			function addItem(key, obj) {
 				if (typeof obj["Bits"] === 'number') {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
@@ -47,6 +50,10 @@ $(() => {
 					addItem(obj[key]);
 				}
 			}
+
+
+			console.log(baseSlot);
+
 
 			for (let key in baseSlot) {
 				addItem(key, baseSlot[key]);
