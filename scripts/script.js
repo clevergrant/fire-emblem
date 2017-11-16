@@ -1,4 +1,6 @@
 let first = true;
+let cheatNumber = 0;
+let cheatList = [];
 
 $(() => {
 	//*
@@ -71,4 +73,53 @@ function addItem(obj, Templates, i) {
 			first = false;
 		}
 	}
+}
+
+function addCheat(code, desc) {
+	if (code.length != 13 || !isHex(code) || code[8] != ' ') {
+		console.error("Wrong Code Syntax. Must be XXXXXXXX YYYY");
+		return;
+	}
+
+	let codeArr = code.split(' ');
+	let type = parseInt(codeArr[0].substr(0, 1), 16);
+	let address = parseInt(codeArr[0].substr(1), 16);
+	let value = parseInt(codeArr[1], 16);
+
+	switch (type) {
+		case 0:
+			writeCheat(code, desc, address, address & 0x0FFFFFFF, value, 512, type);
+			break;
+		case 1:
+			writeCheat(code, desc, address, (address & 0x1FFFFFF) | 0x08000000, value, 512, type);
+			break;
+		case 3:
+			writeCheat(code, desc, address, address & 0x0FFFFFFF, value, 512, type);
+			break;
+		case 8:
+			writeCheat(code, desc, address, address & 0x0FFFFFFE, value, 512, type);
+			break;
+		default:
+			console.error("This site doesn't support that code.");
+			break;
+	}
+}
+
+function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
+	let j = cheatNumber;
+	cheatList[j] = {
+		codeString: codeStr,
+		description: desc,
+		rawaddress: rawaddress,
+		address: address,
+		value: value,
+		size: size,
+		type: type
+	}
+	console.log(cheatList[j]);
+	cheatNumber++;
+}
+
+function isHex(string) {
+	return /[\da-f]/i.test(string);
 }
