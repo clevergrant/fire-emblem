@@ -23,13 +23,16 @@ $(() => {
 		Templates.form = dataArr[6];
 
 		for (let i = 0; i < 16; i++) {
-			$("#v-pills-tab").append(Templates.pill
-				.replaceAll("{{NUMBER}}", i)
-				.replaceAll("{{SELECTED}}", "false")
-			);
+
+			let first = true;
+
+			let thispill = Templates.pill.replaceAll("{{NUMBER}}", i);
+			if (first) thispill = thispill.replaceAll("{{SELECTED}}", "true");
+			else thispill = thispill.replaceAll("{{SELECTED}}", "false");
+
+			$("#v-pills-tab").append(thispill);
 
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
-
 			function addItem(key, obj) {
 				if (typeof obj.Bits === 'number') {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
@@ -37,6 +40,7 @@ $(() => {
 						.replaceAll("{{KEY}}", key)
 						.replaceAll("{{ADDRESS}}", obj.BitCode + obj.Address.ToHexString)
 					);
+					if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
 					$("#v-pills-tabContent").append(thisPane);
 				}
 				else for (let key in obj) {
@@ -46,6 +50,7 @@ $(() => {
 
 			for (let key in baseSlot) {
 				addItem(key, baseSlot[key]);
+				first = false;
 			}
 
 		}
