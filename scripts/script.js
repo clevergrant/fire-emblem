@@ -55,10 +55,11 @@ function addItem(obj, Templates, i) {
 				.replaceAll("{{CONTENT}}", Templates.form
 					.replaceAll("{{NUMBER}}", i)
 					.replaceAll("{{KEY}}", key)
-					.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToHexString)
 				);
-			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
-			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "");
+			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active")
+				.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.Decimal.toString(16));
+			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "")
+				.replaceAll("{{ADDRESS}}", obj[key].BitCode + (obj[key].Address.Decimal + Math.pow(4, i)).toString(16));
 			first = false;
 			return thisPane;
 		}
