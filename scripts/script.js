@@ -38,7 +38,7 @@ $(() => {
 
 			function addItem(key, obj) {
 				console.log(obj);
-				if (typeof obj["Bits"] === 'number') {
+				if ("Bits" in obj) {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
 						.replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{KEY}}", key)
