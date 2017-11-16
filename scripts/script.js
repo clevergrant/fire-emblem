@@ -37,6 +37,10 @@ $(() => {
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
 
 			function addItem(key, obj) {
+
+				console.log("Key: " + key);
+				console.log("obj: ", obj);
+
 				if (obj.hasOwnProperty("Bits")) {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
 						.replaceAll("{{NUMBER}}", i)
@@ -52,8 +56,6 @@ $(() => {
 			}
 
 			for (let key in baseSlot) {
-				console.log("Key: " + key);
-				console.log("Obj: ", baseSlot[key]);
 				addItem(key, baseSlot[key]);
 				first = false;
 			}
