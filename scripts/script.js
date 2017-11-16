@@ -57,9 +57,12 @@ function addItem(obj, Templates, i) {
 					.replaceAll("{{KEY}}", key)
 				);
 			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active")
-				.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.Decimal.toString(16));
-			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "")
-				.replaceAll("{{ADDRESS}}", obj[key].BitCode + (obj[key].Address.Decimal + Math.pow(4, i)).toString(16));
+				.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToDecimal.toString(16).toUpperCase());
+			else {
+				let newAddress = obj[key].Address.ToDecimal + (72 * (i - 1));
+				thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "")
+					.replaceAll("{{ADDRESS}}", obj[key].BitCode + newAddress.toString(16).toUpperCase());
+			}
 			first = false;
 			return thisPane;
 		}
