@@ -37,7 +37,6 @@ $(() => {
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
 
 			function addItem(key, obj) {
-				console.log(obj);
 				if ("Bits" in obj) {
 					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
 						.replaceAll("{{NUMBER}}", i)
@@ -53,7 +52,8 @@ $(() => {
 			}
 
 			for (let key in baseSlot) {
-				console.log("Key: " + key)
+				console.log("Key: " + key);
+				console.log("Obj: " + baseSlot[key]);
 				addItem(key, baseSlot[key]);
 				first = false;
 			}
