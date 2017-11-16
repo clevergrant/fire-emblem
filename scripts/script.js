@@ -1,3 +1,5 @@
+let first = true;
+
 $(() => {
 	//*
 	let promiseArr = [];
@@ -17,48 +19,24 @@ $(() => {
 		let classes = dataArr[2];
 		let baseSlot = dataArr[3];
 
-
-
 		let Templates = {};
 		Templates.pill = dataArr[4];
 		Templates.pane = dataArr[5];
 		Templates.form = dataArr[6];
 
-		for (let i = 0; i < 16; i++) {
-
-			let first = true;
+		for (let i = 1; i <= 16; i++) {
 
 			let thispill = Templates.pill.replaceAll("{{NUMBER}}", i);
-			if (first) thispill = thispill.replaceAll("{{SELECTED}}", "true");
-			else thispill = thispill.replaceAll("{{SELECTED}}", "false");
+			if (first) thispill = thispill.replaceAll("{{SELECTED}}", "true")
+				.replaceAll("{{ACTIVE}}", "active");
+			else thispill = thispill.replaceAll("{{SELECTED}}", "false")
+				.replaceAll("{{ACTIVE}}", "");
 
 			$("#v-pills-tab").append(thispill);
 
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
 
-			function addItem(key, obj) {
-
-				console.log("Key: " + key);
-				console.log("obj: ", obj);
-
-				if (obj.hasOwnProperty("Bits")) {
-					thisPane = thisPane.replaceAll("{{CONTENT}}", Templates.form
-						.replaceAll("{{NUMBER}}", i)
-						.replaceAll("{{KEY}}", key)
-						.replaceAll("{{ADDRESS}}", obj.BitCode + obj.Address.ToHexString)
-					);
-					if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
-					$("#v-pills-tabContent").append(thisPane);
-				}
-				else for (let key in obj) {
-					addItem(obj[key]);
-				}
-			}
-
-			for (let key in baseSlot) {
-				addItem(key, baseSlot[key]);
-				first = false;
-			}
+			$("#v-pills-tabContent").append(addItem(baseSlot, Templates, i));
 
 		}
 	});
@@ -68,3 +46,25 @@ String.prototype.replaceAll = function (search, replacement) {
 	let target = this;
 	return target.replace(new RegExp(search, 'g'), replacement);
 };
+
+function addItem(obj, Templates, i) {
+	for (let key in obj) {
+		if (typeof obj[key]["Bits"] === "number") {
+			let thisPane = Templates.pane
+				.replaceAll("{{NUMBER}}", i)
+				.replaceAll("{{CONTENT}}", Templates.form
+					.replaceAll("{{NUMBER}}", i)
+					.replaceAll("{{KEY}}", key)
+					.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToHexString)
+				);
+			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
+			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "");
+			first = false;
+			return thisPane;
+		}
+		else {
+			$("#v-pills-tabContent").append(addItem(obj[key], Templates, i));
+			first = false;
+		}
+	}
+}
