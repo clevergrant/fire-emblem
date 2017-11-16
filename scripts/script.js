@@ -1,9 +1,32 @@
 let first = true;
-let cheatNumber = 0;
-let cheatList = [];
+let cheatNumber = 1;
+let cheatList = [
+	{
+		codeString: "00006777 000A",
+		description: "[m]",
+		rawaddress: 26487,
+		address: 26487,
+		value: 10,
+		size: 512,
+		type: 0xffffffff,
+		enabled: true,
+		status: 0
+	},
+	{
+		codeString: "10001BE0 0007",
+		description: "[m]",
+		rawaddress: 7136,
+		address: 134224864,
+		value: 7,
+		size: 512,
+		type: 1,
+		enabled: false,
+		status: 0
+	}
+];
 
 $(() => {
-	//*
+	/*
 	let promiseArr = [];
 
 	promiseArr[0] = $.getJSON("../database/items.json");
@@ -42,6 +65,9 @@ $(() => {
 
 		}
 	});
+	//*/
+
+	writeToFile();
 });
 
 String.prototype.replaceAll = function (search, replacement) {
@@ -114,8 +140,11 @@ function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
 		address: address,
 		value: value,
 		size: size,
-		type: type
+		type: type,
+		enabled: true,
+		status: 0
 	}
+	if (type == 0) cheatList[j].type = type | 0xffffffff;
 	console.log(cheatList[j]);
 	cheatNumber++;
 }
@@ -123,3 +152,55 @@ function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
 function isHex(string) {
 	return /[\da-f]/i.test(string);
 }
+
+function writeToFile() {
+	// let bar = new Int8Array(8412);
+	let bar = new Int8Array(96);
+
+	let version = makeArr(1);
+	bar.set(version);
+	let type = makeArr(0);
+	bar.set(type, 4);
+	bar.set(makeArr(cheatNumber), 8);
+
+	for (let i = 0; i < cheatNumber; i++) {
+
+		let offset = 12 + (84 * i);
+
+		bar.set(makeArr(cheatList[i].size), offset);
+		bar.set(makeArr(cheatList[i].type), offset + 4);
+		bar.set(makeArr(cheatList[i].status), offset + 8);
+		bar.set(makeArr(cheatList[i].enabled), offset + 12);
+		bar.set(makeArr(cheatList[i].rawaddress), offset + 16);
+		bar.set(makeArr(cheatList[i].address), offset + 20);
+		bar.set(makeArr(cheatList[i].value), offset + 24);
+		bar.set(makeArr(0), offset + 28);
+		bar.set(makeArr(cheatList[i].codeString), offset + 32);
+
+
+		console.log(cheatList[i]);
+
+	}
+
+	console.log(bar);
+
+	//saveByteArray(bar, "test.clt");
+}
+
+function makeArr(number) {
+	return new Uint8Array(number.toString(16).match(/[\da-f]/i).map(h => parseInt(h, 16)));
+}
+
+let saveByteArray = (function () {
+	let a = document.createElement("a");
+	document.body.appendChild(a);
+	a.style = "display: none";
+	return function (data, name) {
+		let blob = new Blob([data], { type: "application/octet-stream" }),
+			url = window.URL.createObjectURL(blob);
+		a.href = url;
+		a.download = name;
+		a.click();
+		window.URL.revokeObjectURL(url);
+	};
+}());
