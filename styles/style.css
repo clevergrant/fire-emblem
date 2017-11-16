@@ -1,0 +1,14 @@
+*{
+	font-family: 'Cutive Mono', serif;
+	font-weight: bold !important;
+	/* font-family: 'Noto Sans', sans-serif; */
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+	font-family: 'Cutive Mono', serif;
+	font-weight: bold;
+}
+
+.main-body {
+	padding-top: 3rem;
+}

@@ -1,0 +1,424 @@
+{
+	"Portrait": {
+		"Bits": 16,
+		"BitCode": "8",
+		"Address": {
+			"ToDecimal": 33733968,
+			"ToHexString": "202BD50"
+		}
+	},
+	"Class": {
+		"Bits": 16,
+		"BitCode": "8",
+		"Address": {
+			"ToDecimal": 33733972,
+			"ToHexString": "202BD54"
+		}
+	},
+	"Level": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733976,
+			"ToHexString": "202BD58"
+		}
+	},
+	"Experience": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733977,
+			"ToHexString": "202BD59"
+		}
+	},
+	"TurnStatus": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733980,
+			"ToHexString": "202BD5C"
+		}
+	},
+	"HiddenStatus": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733981,
+			"ToHexString": "202BD5D"
+		}
+	},
+	"Position": {
+		"Horizontal": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733984,
+				"ToHexString": "202BD60"
+			}
+		},
+		"Vertical": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733985,
+				"ToHexString": "202BD61"
+			}
+		}
+	},
+	"HitPoints": {
+		"Maximum": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733986,
+				"ToHexString": "202BD62"
+			}
+		},
+		"Current": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733987,
+				"ToHexString": "202BD63"
+			}
+		}
+	},
+	"Attributes": {
+		"Str": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733988,
+				"ToHexString": "202BD64"
+			}
+		},
+		"Skl": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733989,
+				"ToHexString": "202BD65"
+			}
+		},
+		"Spd": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733990,
+				"ToHexString": "202BD66"
+			}
+		},
+		"Def": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733991,
+				"ToHexString": "202BD67"
+			}
+		},
+		"Res": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733992,
+				"ToHexString": "202BD68"
+			}
+		},
+		"Lck": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733993,
+				"ToHexString": "202BD69"
+			}
+		},
+		"Con": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33733994,
+				"ToHexString": "202BD6A"
+			}
+		}
+	},
+	"Rescue": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733995,
+			"ToHexString": "202BD6B"
+		}
+	},
+	"Move": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33733997,
+			"ToHexString": "202BD6D"
+		}
+	},
+	"Items": [
+		{
+			"Type": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33733998,
+					"ToHexString": "202BD6E"
+				}
+			},
+			"Quantity": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33733999,
+					"ToHexString": "202BD6F"
+				}
+			},
+			"QuantityType": {
+				"Bits": 16,
+				"BitCode": "8",
+				"Address": {
+					"ToDecimal": 33733998,
+					"ToHexString": "202BD6E"
+				}
+			}
+		},
+		{
+			"Type": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734000,
+					"ToHexString": "202BD70"
+				}
+			},
+			"Quantity": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734001,
+					"ToHexString": "202BD71"
+				}
+			},
+			"QuantityType": {
+				"Bits": 16,
+				"BitCode": "8",
+				"Address": {
+					"ToDecimal": 33734000,
+					"ToHexString": "202BD70"
+				}
+			}
+		},
+		{
+			"Type": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734002,
+					"ToHexString": "202BD72"
+				}
+			},
+			"Quantity": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734003,
+					"ToHexString": "202BD73"
+				}
+			},
+			"QuantityType": {
+				"Bits": 16,
+				"BitCode": "8",
+				"Address": {
+					"ToDecimal": 33734002,
+					"ToHexString": "202BD72"
+				}
+			}
+		},
+		{
+			"Type": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734004,
+					"ToHexString": "202BD74"
+				}
+			},
+			"Quantity": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734005,
+					"ToHexString": "202BD75"
+				}
+			},
+			"QuantityType": {
+				"Bits": 16,
+				"BitCode": "8",
+				"Address": {
+					"ToDecimal": 33734004,
+					"ToHexString": "202BD74"
+				}
+			}
+		},
+		{
+			"Type": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734006,
+					"ToHexString": "202BD76"
+				}
+			},
+			"Quantity": {
+				"Bits": 8,
+				"BitCode": "3",
+				"Address": {
+					"ToDecimal": 33734007,
+					"ToHexString": "202BD77"
+				}
+			},
+			"QuantityType": {
+				"Bits": 16,
+				"BitCode": "8",
+				"Address": {
+					"ToDecimal": 33734006,
+					"ToHexString": "202BD76"
+				}
+			}
+		}
+	],
+	"Skills": {
+		"Sword": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734008,
+				"ToHexString": "202BD78"
+			}
+		},
+		"Lance": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734009,
+				"ToHexString": "202BD79"
+			}
+		},
+		"Axe": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734010,
+				"ToHexString": "202BD7A"
+			}
+		},
+		"Bow": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734011,
+				"ToHexString": "202BD7B"
+			}
+		},
+		"Staff": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734012,
+				"ToHexString": "202BD7C"
+			}
+		},
+		"Anima": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734013,
+				"ToHexString": "202BD7D"
+			}
+		},
+		"Light": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734014,
+				"ToHexString": "202BD7E"
+			}
+		},
+		"Dark": {
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734015,
+				"ToHexString": "202BD7F"
+			}
+		}
+	},
+	"Status": {
+		"Bits": 8,
+		"BitCode": "3",
+		"Address": {
+			"ToDecimal": 33734016,
+			"ToHexString": "202BD80"
+		}
+	},
+	"Support": [
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734017,
+				"ToHexString": "202BD81"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734018,
+				"ToHexString": "202BD82"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734019,
+				"ToHexString": "202BD83"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734020,
+				"ToHexString": "202BD84"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734021,
+				"ToHexString": "202BD85"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734022,
+				"ToHexString": "202BD86"
+			}
+		},
+		{
+			"Bits": 8,
+			"BitCode": "3",
+			"Address": {
+				"ToDecimal": 33734023,
+				"ToHexString": "202BD87"
+			}
+		}
+	]
+}
