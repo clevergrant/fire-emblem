@@ -40,6 +40,7 @@ $(() => {
 
 			$("#v-pills-tabContent").append(addItem(baseSlot, Templates, i));
 
+			first = false;
 		}
 	});
 	//*/
