@@ -38,7 +38,12 @@ $(() => {
 
 			let thisPane = Templates.pane.replaceAll("{{NUMBER}}", i);
 
-			$("#v-pills-tabContent").append(addItem(baseSlot, Templates, i));
+			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
+			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "");
+
+			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(baseSlot, Templates, i));
+
+			$("#v-pills-tabContent").append(thisPane);
 
 			first = false;
 		}
@@ -46,30 +51,23 @@ $(() => {
 	//*/
 });
 
-function addItem(obj, Templates, i) {
+function getForms(obj, Templates, i) {
+	let forms = "";
 	for (let key in obj) {
-		if (typeof obj[key]["Bits"] === "number") {
-			let thisPane = Templates.pane
-				.replaceAll("{{NUMBER}}", i)
-				.replaceAll("{{CONTENT}}", Templates.form
-					.replaceAll("{{NUMBER}}", i)
-					.replaceAll("{{KEY}}", key)
-				);
-			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active")
-				.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToDecimal.toString(16).toUpperCase());
+		if (typeof obj[key].Bits === "number") {
+			let oneform = Templates.form.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+			if (first) oneform = oneform.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToDecimal.toString(16).toUpperCase());
 			else {
 				let newAddress = obj[key].Address.ToDecimal + (72 * (i - 1));
-				thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "")
-					.replaceAll("{{ADDRESS}}", obj[key].BitCode + newAddress.toString(16).toUpperCase());
+				oneform = oneform.replaceAll("{{ADDRESS}}", obj[key].BitCode + newAddress.toString(16).toUpperCase());
 			}
-			first = false;
-			return thisPane;
+			forms += oneform;
 		}
 		else {
-			$("#v-pills-tabContent").append(addItem(obj[key], Templates, i));
-			first = false;
+			forms += getForms(obj[key], Templates, i);
 		}
 	}
+	return forms;
 }
 
 function addCheat(code, desc) {
@@ -114,7 +112,7 @@ function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
 		type: type,
 		enabled: 1,
 		status: 0
-	}
+	};
 	cheatNumber++;
 }
 
@@ -128,7 +126,7 @@ function writeToFile() {
 	for (let i = 0; i < cheatNumber; i++) {
 		let offset = 12 + (84 * i);
 		bar.set(getHexArr(cheatList[i].size), offset);
-		if (cheatList[i].type == 0) bar.set([0xff, 0xff, 0xff, 0xff], offset + 4);
+		if (cheatList[i].type === 0) bar.set([0xff, 0xff, 0xff, 0xff], offset + 4);
 		else bar.set(getHexArr(cheatList[i].type), offset + 4);
 		bar.set(getHexArr(cheatList[i].status), offset + 8);
 		bar.set(getHexArr(cheatList[i].enabled), offset + 12);
@@ -146,7 +144,7 @@ function getHexArr(value) {
 	if (typeof value == 'number') {
 		let hexstr = value.toString(16).toUpperCase();
 		let even = true;
-		if (hexstr.length % 2 != 0) hexstr = "0" + hexstr;
+		if (hexstr.length % 2 !== 0) hexstr = "0" + hexstr;
 		let temp = "";
 		let res = [];
 		for (let i = 0; i < hexstr.length; i++) {
