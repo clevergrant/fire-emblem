@@ -1,32 +1,9 @@
 let first = true;
-let cheatNumber = 1;
-let cheatList = [
-	{
-		codeString: "00006777 000A",
-		description: "[m]",
-		rawaddress: 26487,
-		address: 26487,
-		value: 10,
-		size: 512,
-		type: 0xffffffff,
-		enabled: true,
-		status: 0
-	},
-	{
-		codeString: "10001BE0 0007",
-		description: "[m]",
-		rawaddress: 7136,
-		address: 134224864,
-		value: 7,
-		size: 512,
-		type: 1,
-		enabled: false,
-		status: 0
-	}
-];
+let cheatNumber = 0;
+let cheatList = [];
 
 $(() => {
-	/*
+	//*
 	let promiseArr = [];
 
 	promiseArr[0] = $.getJSON("../database/items.json");
@@ -66,14 +43,7 @@ $(() => {
 		}
 	});
 	//*/
-
-	writeToFile();
 });
-
-String.prototype.replaceAll = function (search, replacement) {
-	let target = this;
-	return target.replace(new RegExp(search, 'g'), replacement);
-};
 
 function addItem(obj, Templates, i) {
 	for (let key in obj) {
@@ -141,54 +111,66 @@ function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
 		value: value,
 		size: size,
 		type: type,
-		enabled: true,
+		enabled: 1,
 		status: 0
 	}
-	if (type == 0) cheatList[j].type = type | 0xffffffff;
-	console.log(cheatList[j]);
 	cheatNumber++;
 }
 
-function isHex(string) {
-	return /[\da-f]/i.test(string);
-}
-
 function writeToFile() {
-	// let bar = new Int8Array(8412);
-	let bar = new Int8Array(96);
-
-	let version = makeArr(1);
+	let bar = new Int8Array(8412);
+	let version = getHexArr(1);
 	bar.set(version);
-	let type = makeArr(0);
+	let type = getHexArr(0);
 	bar.set(type, 4);
-	bar.set(makeArr(cheatNumber), 8);
-
+	bar.set(getHexArr(cheatNumber), 8);
 	for (let i = 0; i < cheatNumber; i++) {
-
 		let offset = 12 + (84 * i);
-
-		bar.set(makeArr(cheatList[i].size), offset);
-		bar.set(makeArr(cheatList[i].type), offset + 4);
-		bar.set(makeArr(cheatList[i].status), offset + 8);
-		bar.set(makeArr(cheatList[i].enabled), offset + 12);
-		bar.set(makeArr(cheatList[i].rawaddress), offset + 16);
-		bar.set(makeArr(cheatList[i].address), offset + 20);
-		bar.set(makeArr(cheatList[i].value), offset + 24);
-		bar.set(makeArr(0), offset + 28);
-		bar.set(makeArr(cheatList[i].codeString), offset + 32);
-
-
-		console.log(cheatList[i]);
-
+		bar.set(getHexArr(cheatList[i].size), offset);
+		if (cheatList[i].type == 0) bar.set([0xff, 0xff, 0xff, 0xff], offset + 4);
+		else bar.set(getHexArr(cheatList[i].type), offset + 4);
+		bar.set(getHexArr(cheatList[i].status), offset + 8);
+		bar.set(getHexArr(cheatList[i].enabled), offset + 12);
+		bar.set(getHexArr(cheatList[i].rawaddress), offset + 16);
+		bar.set(getHexArr(cheatList[i].address), offset + 20);
+		bar.set(getHexArr(cheatList[i].value), offset + 24);
+		bar.set(getHexArr(0), offset + 28);
+		bar.set(getHexArr(cheatList[i].codeString), offset + 32);
+		bar.set(getHexArr(cheatList[i].description), offset + 52);
 	}
-
-	console.log(bar);
-
-	//saveByteArray(bar, "test.clt");
+	saveByteArray(bar, "Fire Emblem.clt");
 }
 
-function makeArr(number) {
-	return new Uint8Array(number.toString(16).match(/[\da-f]/i).map(h => parseInt(h, 16)));
+function getHexArr(value) {
+	if (typeof value == 'number') {
+		let hexstr = value.toString(16).toUpperCase();
+		let even = true;
+		if (hexstr.length % 2 != 0) hexstr = "0" + hexstr;
+		let temp = "";
+		let res = [];
+		for (let i = 0; i < hexstr.length; i++) {
+			if (even) temp = hexstr[i];
+			else {
+				temp += hexstr[i];
+				res.push(parseInt(temp, 16));
+				temp = "";
+			}
+			even = !even;
+		}
+		if (temp != "") {
+			temp += "0";
+			res.push(parseInt(temp, 16));
+		}
+		res.reverse();
+		while (res.length < 4) res.push(0);
+		return res;
+	}
+	else if (typeof value == 'string') {
+		let res = [];
+		for (let i = 0; i < value.length; i++) res.push(value.charCodeAt(i));
+		while (res.length < 20) res.push(0);
+		return res;
+	}
 }
 
 let saveByteArray = (function () {
@@ -204,3 +186,12 @@ let saveByteArray = (function () {
 		window.URL.revokeObjectURL(url);
 	};
 }());
+
+String.prototype.replaceAll = function (search, replacement) {
+	let target = this;
+	return target.replace(new RegExp(search, 'g'), replacement);
+};
+
+function isHex(string) {
+	return /[\da-f ]+/i.test(string);
+}
