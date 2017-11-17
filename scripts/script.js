@@ -10,12 +10,13 @@ $(() => {
 	promiseArr[1] = $.getJSON("../database/portraits.json");
 	promiseArr[2] = $.getJSON("../database/classes.json");
 	promiseArr[3] = $.getJSON("../database/base-slot.json");
-	promiseArr[4] = $.get("../templates/pill.html");
-	promiseArr[5] = $.get("../templates/pane.html");
-	promiseArr[6] = $.get("../templates/form.html");
-	promiseArr[7] = $.get("../templates/select.html");
-	promiseArr[8] = $.get("../templates/option.html");
-	promiseArr[9] = $.get("../templates/number-field.html");
+	promiseArr[4] = $.getJSON("../database/base-slot.json");
+	promiseArr[5] = $.get("../templates/pill.html");
+	promiseArr[6] = $.get("../templates/pane.html");
+	promiseArr[7] = $.get("../templates/form.html");
+	promiseArr[8] = $.get("../templates/select.html");
+	promiseArr[9] = $.get("../templates/option.html");
+	promiseArr[10] = $.get("../templates/number-field.html");
 
 	Promise.all(promiseArr).then(dataArr => {
 
@@ -23,14 +24,15 @@ $(() => {
 		let portraits = dataArr[1];
 		let classes = dataArr[2];
 		let baseSlot = dataArr[3];
+		let statuses = dataArr[4];
 
 		let Templates = {};
-		Templates.pill = dataArr[4];
-		Templates.pane = dataArr[5];
-		Templates.form = dataArr[6];
-		Templates.select = dataArr[7];
-		Templates.option = dataArr[8];
-		Templates.numberField = dataArr[9];
+		Templates.pill = dataArr[5];
+		Templates.pane = dataArr[6];
+		Templates.form = dataArr[7];
+		Templates.select = dataArr[8];
+		Templates.option = dataArr[9];
+		Templates.numberField = dataArr[10];
 
 		for (let i = 1; i <= 16; i++) {
 
@@ -55,8 +57,20 @@ $(() => {
 		}
 
 		$("input.Level-field").change(e => {
-			if ($(e.target).val() >= 20) $("#" + $(e.target).attr('id').replaceAll("Level", "Experience")).attr('disabled', true).val("100");
-			else $("#" + $(e.target).attr('id').replaceAll("Level", "Experience")).attr('disabled', false).val("");
+			let expid = "#" + $(e.target).attr('id').replaceAll("Level", "Experience");
+			if ($(e.target).val() >= 20) {
+				$(expid).attr('disabled', true).val("100");
+				if ($(e.target).val() > 20) $(e.target).val(20);
+			}
+			else {
+				$(expid).attr('disabled', false).val("");
+				if ($(e.target).val() < 1) $(e.target).val(1);
+			}
+		});
+
+		$("input.Experience-field").change(e => {
+			if ($(e.target).val() > 99) $(e.target).val(99);
+			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
 
 	});
@@ -99,6 +113,13 @@ function getForms(obj, Templates, i, portraits, classes, items) {
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
 						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "99"));
+					break;
+				case "HiddenStatus":
+					oneform = Templates.form.replaceAll("{{KEYNAME}}", "Hidden Status").replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					let statusKeys = Object.keys(classes.Usable).sort();
+					for (let key of classKeys) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", classes.Usable[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
 					break;
 				default:
 					break;
@@ -194,8 +215,10 @@ function writeToFile() {
 	for (let i = 0; i < cheatNumber; i++) {
 		let offset = 12 + (84 * i);
 		bar.set(getHexArr(cheatList[i].size), offset);
-		if (cheatList[i].type === 0) bar.set([0xff, 0xff, 0xff, 0xff], offset + 4);
-		else bar.set(getHexArr(cheatList[i].type), offset + 4);
+		if (cheatList[i].type === 0) bar.set([255, 255, 255, 255], offset + 4);
+		else if (cheatList[i].type === 1) bar.set([112, 0, 0, 0], offset + 4);
+		else if (cheatList[i].type === 8) bar.set([1, 0, 0, 0], offset + 4);
+		else bar.set([0, 0, 0, 0], offset + 4);
 		bar.set(getHexArr(cheatList[i].status), offset + 8);
 		bar.set(getHexArr(cheatList[i].enabled), offset + 12);
 		bar.set(getHexArr(cheatList[i].rawaddress), offset + 16);
