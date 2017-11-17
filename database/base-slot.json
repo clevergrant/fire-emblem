@@ -108,14 +108,6 @@
 				"ToHexString": "202BD67"
 			}
 		},
-		"Res": {
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33733992,
-				"ToHexString": "202BD68"
-			}
-		},
 		"Lck": {
 			"Bits": 8,
 			"BitCode": "3",

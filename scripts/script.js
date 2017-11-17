@@ -6,31 +6,25 @@ $(() => {
 	//*
 	let promiseArr = [];
 
-	promiseArr[0] = $.getJSON("../database/items.json");
-	promiseArr[1] = $.getJSON("../database/portraits.json");
-	promiseArr[2] = $.getJSON("../database/classes.json");
-	promiseArr[3] = $.getJSON("../database/base-slot.json");
-	promiseArr[4] = $.get("../templates/pill.html");
-	promiseArr[5] = $.get("../templates/pane.html");
-	promiseArr[6] = $.get("../templates/form.html");
-	promiseArr[7] = $.get("../templates/select.html");
-	promiseArr[8] = $.get("../templates/option.html");
-	promiseArr[9] = $.get("../templates/number-field.html");
+	promiseArr[0] = $.getJSON("../database/base-slot.json");
+	promiseArr[1] = $.get("../templates/pill.html");
+	promiseArr[2] = $.get("../templates/pane.html");
+	promiseArr[3] = $.get("../templates/form.html");
+	promiseArr[4] = $.get("../templates/select.html");
+	promiseArr[5] = $.get("../templates/option.html");
+	promiseArr[6] = $.get("../templates/number-field.html");
 
 	Promise.all(promiseArr).then(dataArr => {
 
-		let items = dataArr[0];
-		let portraits = dataArr[1];
-		let classes = dataArr[2];
-		let baseSlot = dataArr[3];
+		let baseSlot = dataArr[0];
 
 		let Templates = {};
-		Templates.pill = dataArr[4];
-		Templates.pane = dataArr[5];
-		Templates.form = dataArr[6];
-		Templates.select = dataArr[7];
-		Templates.option = dataArr[8];
-		Templates.numberField = dataArr[9];
+		Templates.pill = dataArr[1];
+		Templates.pane = dataArr[2];
+		Templates.form = dataArr[3];
+		Templates.select = dataArr[4];
+		Templates.option = dataArr[5];
+		Templates.numberField = dataArr[6];
 
 		for (let i = 1; i <= 16; i++) {
 
@@ -65,26 +59,20 @@ function getForms(obj, Templates, i) {
 				.replaceAll("{{KEY}}", key);
 
 			switch (key) {
-				case "0":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
+				case "Portrait":
+					let options = "";
+					$.getJSON("../database/portraits.json").done(characters => {
+						for (let code of characters) {
+							console.log(code);
+						}
+					});
+
+					oneform = oneform.replaceAll("{{FIELD}}", Templates
+						.select.replaceAll("{{KEY}}", key)
+						.replaceAll("{{OPTIONS}}", options)
+					);
 					break;
-				case "1":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
-					break;
-				case "2":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
-					break;
-				case "3":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
-					break;
-				case "4":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
-					break;
-				case "5":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
-					break;
-				case "6":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
+				case "QuantityType":
 					break;
 				default:
 					oneform = oneform.replaceAll("{{KEYNAME}}", key);
