@@ -55,6 +55,8 @@ $(() => {
 		}
 	});
 	//*/
+
+	$(".Level-field").change(e => console.log);
 });
 
 function getForms(obj, Templates, i, portraits, classes, items) {
