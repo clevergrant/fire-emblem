@@ -120,6 +120,11 @@ $(() => {
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
 
+		$("input[class$='Quantity-field']").change(e => {
+			if ($(e.target).val() > 255) $(e.target).val(255);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
 	});
 	//*/
 
