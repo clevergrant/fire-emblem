@@ -1,6 +1,13 @@
 <div class="form-group row">
 	<label for="{{KEY}}-{{NUMBER}}" class="col-sm-4 col-form-label">{{KEYNAME}}</label>
-	<div class="input-group col-sm-8">
-		{{FIELD}}
+	<div class="col-sm-8">
+		<div class="input-group">
+			{{FIELD}}
+			<div class="input-group-btn" data-toggle="buttons">
+				<label class="btn btn-outline-primary">
+					<input type="checkbox" id="{{KEY}}-{{NUMBER}}-enable" autocomplete="off"> Enable Code
+				</label>
+			</div>
+		</div>
 	</div>
 </div>
