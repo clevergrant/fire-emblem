@@ -53,10 +53,15 @@ $(() => {
 
 			first = false;
 		}
+
+		$("input.Level-field").change(e => {
+			if ($(e.target).val() >= 20) $("#" + $(e.target).attr('id').replaceAll("Level", "Experience")).attr('disabled', true).val("100");
+			else $("#" + $(e.target).attr('id').replaceAll("Level", "Experience")).attr('disabled', false).val("");
+		});
+
 	});
 	//*/
 
-	$(".Level-field").change(e => console.log);
 });
 
 function getForms(obj, Templates, i, portraits, classes, items) {
