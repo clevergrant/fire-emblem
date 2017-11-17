@@ -22,17 +22,16 @@
 			</div>
 		</nav>
 		<div class="container main-body">
-			<form>
-				<div class="row">
-					<div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical"></div>
-					<div class="tab-content col-auto" id="v-pills-tabContent"></div>
-				</div>
-				<br>
-				<br>
-				<center>
-					<button type="submit" class="btn btn-primary">Generate Codes</button>
-				</center>
-			</form>
+			<div class="row">
+				<div class="nav flex-column nav-pills col-2" id="v-pills-tab" role="tablist" aria-orientation="vertical"></div>
+				<form class="tab-content col-auto" id="v-pills-tabContent">
+				</form>
+			</div>
+			<br>
+			<br>
+			<center>
+				<button class="btn btn-primary" onclick="writeToFile">Generate Codes</button>
+			</center>
 		</div>
 
 

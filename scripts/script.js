@@ -43,7 +43,7 @@ $(() => {
 
 			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(baseSlot, Templates, i));
 
-			$("#v-pills-tabContent").append(thisPane);
+			$("#v-pills-tabContent > form").append(thisPane);
 
 			first = false;
 		}
