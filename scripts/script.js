@@ -3,7 +3,6 @@ let cheatNumber = 0;
 let cheatList = [];
 
 $(() => {
-	//*
 	let promiseArr = [];
 
 	promiseArr[0] = $.getJSON("../database/slot.json");
@@ -17,7 +16,6 @@ $(() => {
 	promiseArr[7] = $.get("../templates/number-field.html");
 
 	Promise.all(promiseArr).then(dataArr => {
-
 		let Slot = dataArr[0];
 		let Codes = dataArr[1];
 
@@ -62,72 +60,57 @@ $(() => {
 				if ($(e.target).val() < 1) $(e.target).val(1);
 			}
 		});
-
 		$("input.Experience-field").change(e => {
 			if ($(e.target).val() > 99) $(e.target).val(99);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Maximum-field").change(e => {
 			if ($(e.target).val() > 60) $(e.target).val(60);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Current-field").change(e => {
 			let maxid = "#" + $(e.target).attr('id').replaceAll("Current", "Maximum");
 			if ($(e.target).val() > $(maxid).val()) $(e.target).val($(maxid).val());
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Strength-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Skill-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Speed-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Defense-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Luck-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Constitution-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Rescue-field").change(e => {
 			let conid = "#" + $(e.target).attr('id').replaceAll("Rescue", "Constitution");
 			if ($(e.target).val() >= $(maxid).val()) $(e.target).val(parseInt($(maxid).val()) - 1);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input.Move-field").change(e => {
 			if ($(e.target).val() > 30) $(e.target).val(30);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 		$("input[class$='Quantity-field']").change(e => {
 			if ($(e.target).val() > 255) $(e.target).val(255);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
-
 	});
-	//*/
-
 });
 
 function getForms(object, i, Templates, Codes) {
@@ -285,6 +268,10 @@ function getForms(object, i, Templates, Codes) {
 		}
 	}
 	return forms;
+}
+
+function getCodes() {
+	console.log("form", $("#v-pills-tabContent").serialize());
 }
 
 function addCheat(code, desc) {
