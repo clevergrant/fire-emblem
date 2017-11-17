@@ -58,7 +58,7 @@ $(() => {
 });
 
 function getForms(obj, Templates, i) {
-	let forms = "<h5 class='form-header'>Slot " + i + "</h5>";
+	let forms = "";
 	for (let key in obj) {
 		if (typeof obj[key].Bits === "number") {
 			let oneform = Templates.form.replaceAll("{{NUMBER}}", i)
