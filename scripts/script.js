@@ -60,21 +60,24 @@ function getForms(obj, Templates, i) {
 
 			switch (key) {
 				case "0":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
 				case "1":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
 				case "2":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
 				case "3":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
 				case "4":
-					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
-				case "Support":
+				case "5":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
+					break;
+				case "6":
 					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
 					break;
 				default:
@@ -107,7 +110,7 @@ function getForms(obj, Templates, i) {
 					forms += "<p>Slot 5</p>";
 					break;
 				default:
-					forms += "<p>" + key + "</p>";
+					forms += "<h5 class='form-header'>" + key + "</h5>";
 					break;
 			}
 			forms += getForms(obj[key], Templates, i);
