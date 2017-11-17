@@ -31,7 +31,7 @@
 			"ToHexString": "202BD59"
 		}
 	},
-	"HiddenStatus": {
+	"Hidden Status": {
 		"Bits": 8,
 		"BitCode": "3",
 		"Address": {
@@ -57,7 +57,7 @@
 			}
 		}
 	},
-	"HitPoints": {
+	"Hit Points": {
 		"Maximum": {
 			"Bits": 8,
 			"BitCode": "3",
@@ -76,7 +76,7 @@
 		}
 	},
 	"Attributes": {
-		"Str": {
+		"Strength": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
@@ -84,7 +84,7 @@
 				"ToHexString": "202BD64"
 			}
 		},
-		"Skl": {
+		"Skill": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
@@ -92,7 +92,7 @@
 				"ToHexString": "202BD65"
 			}
 		},
-		"Spd": {
+		"Speed": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
@@ -100,7 +100,7 @@
 				"ToHexString": "202BD66"
 			}
 		},
-		"Def": {
+		"Defense": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
@@ -108,7 +108,7 @@
 				"ToHexString": "202BD67"
 			}
 		},
-		"Lck": {
+		"Luck": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
@@ -116,7 +116,7 @@
 				"ToHexString": "202BD69"
 			}
 		},
-		"Con": {
+		"Constitution": {
 			"Bits": 8,
 			"BitCode": "3",
 			"Address": {
