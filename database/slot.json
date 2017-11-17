@@ -320,13 +320,5 @@
 				"ToHexString": "202BD7F"
 			}
 		}
-	},
-	"Status": {
-		"Bits": 8,
-		"BitCode": "3",
-		"Address": {
-			"ToDecimal": 33734016,
-			"ToHexString": "202BD80"
-		}
 	}
 }

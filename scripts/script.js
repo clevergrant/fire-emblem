@@ -44,7 +44,7 @@ $(() => {
 			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
 			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "");
 
-			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(Slot, Templates, i, Codes));
+			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(Slot, i, Templates, Codes));
 
 			$("#v-pills-tabContent").append(thisPane);
 
@@ -79,12 +79,53 @@ $(() => {
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
 
+		$("input.Strength-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Skill-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Speed-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Defense-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Luck-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Constitution-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Rescue-field").change(e => {
+			let conid = "#" + $(e.target).attr('id').replaceAll("Rescue", "Constitution");
+			if ($(e.target).val() >= $(maxid).val()) $(e.target).val(parseInt($(maxid).val()) - 1);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
+		$("input.Move-field").change(e => {
+			if ($(e.target).val() > 30) $(e.target).val(30);
+			if ($(e.target).val() < 1) $(e.target).val(1);
+		});
+
 	});
 	//*/
 
 });
 
-function getForms(object, Templates, i, Codes) {
+function getForms(object, i, Templates, Codes) {
 	let forms = "";
 	for (let key in object) {
 		if (typeof object[key].Bits === "number") {
@@ -193,6 +234,48 @@ function getForms(object, Templates, i, Codes) {
 					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
 					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Sword":
+					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					for (let key in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", Codes.Ranks[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
 				default:
 					break;
 			}
@@ -229,7 +312,7 @@ function getForms(object, Templates, i, Codes) {
 					forms += "<h5 class='form-header'>" + key + "</h5>";
 					break;
 			}
-			forms += getForms(object[key], Templates, i, Codes);
+			forms += getForms(object[key], i, Templates, Codes);
 		}
 	}
 	return forms;
