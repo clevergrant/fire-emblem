@@ -64,6 +64,7 @@ function getForms(obj, Templates, i) {
 			forms += oneform;
 		}
 		else {
+			forms += "<h4>" + key + "</h4>";
 			forms += getForms(obj[key], Templates, i);
 		}
 	}
