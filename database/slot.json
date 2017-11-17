@@ -125,7 +125,7 @@
 	},
 	"Items": [
 		{
-			"Type": {
+			"Slot 1 Type": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -133,7 +133,7 @@
 					"ToHexString": "202BD6E"
 				}
 			},
-			"Quantity": {
+			"Slot 1 Quantity": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -151,7 +151,7 @@
 			}
 		},
 		{
-			"Type": {
+			"Slot 2 Type": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -159,7 +159,7 @@
 					"ToHexString": "202BD70"
 				}
 			},
-			"Quantity": {
+			"Slot 2 Quantity": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -177,7 +177,7 @@
 			}
 		},
 		{
-			"Type": {
+			"Slot 3 Type": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -185,7 +185,7 @@
 					"ToHexString": "202BD72"
 				}
 			},
-			"Quantity": {
+			"Slot 3 Quantity": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -203,7 +203,7 @@
 			}
 		},
 		{
-			"Type": {
+			"Slot 4 Type": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -211,7 +211,7 @@
 					"ToHexString": "202BD74"
 				}
 			},
-			"Quantity": {
+			"Slot 4 Quantity": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -229,7 +229,7 @@
 			}
 		},
 		{
-			"Type": {
+			"Slot 5 Type": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
@@ -237,7 +237,7 @@
 					"ToHexString": "202BD76"
 				}
 			},
-			"Quantity": {
+			"Slot 5 Quantity": {
 				"Bits": 8,
 				"BitCode": "3",
 				"Address": {
