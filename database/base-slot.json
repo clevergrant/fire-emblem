@@ -39,24 +39,6 @@
 			"ToHexString": "202BD5D"
 		}
 	},
-	"Position": {
-		"Horizontal": {
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33733984,
-				"ToHexString": "202BD60"
-			}
-		},
-		"Vertical": {
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33733985,
-				"ToHexString": "202BD61"
-			}
-		}
-	},
 	"Hit Points": {
 		"Maximum": {
 			"Bits": 8,
