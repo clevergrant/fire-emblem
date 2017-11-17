@@ -271,7 +271,7 @@ function getForms(object, i, Templates, Codes) {
 }
 
 function getCodes() {
-	console.log("form", $("#v-pills-tabContent").serialize());
+	console.log("form", $("#v-pills-tabContent").serializeArray());
 }
 
 function addCheat(code, desc) {
