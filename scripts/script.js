@@ -1,6 +1,7 @@
 let first = true;
 let cheatNumber = 0;
 let cheatList = [];
+let codes = {};
 
 $(() => {
 	let promiseArr = [];
@@ -17,7 +18,7 @@ $(() => {
 
 	Promise.all(promiseArr).then(dataArr => {
 		let Slot = dataArr[0];
-		let Codes = dataArr[1];
+		Codes = dataArr[1];
 
 		let Templates = {};
 		Templates.pill = dataArr[2];
@@ -271,7 +272,18 @@ function getForms(object, i, Templates, Codes) {
 }
 
 function getCodes() {
-	console.log("form", $("#v-pills-tabContent").serializeArray());
+	$(".code-check").each((index, element) => {
+		if ($(element).is(":checked")) {
+			let fieldId = $(element).data('field-id');
+			let desc = $(fieldId).html();
+			let CB = [
+				$(element).data('address'),
+				$(fieldId).val()
+			].join(' ');
+			console.log("code:", CB);
+			console.log("desc:", desc);
+		}
+	});
 }
 
 function addCheat(code, desc) {
