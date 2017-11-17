@@ -13,6 +13,9 @@ $(() => {
 	promiseArr[4] = $.get("../templates/pill.html");
 	promiseArr[5] = $.get("../templates/pane.html");
 	promiseArr[6] = $.get("../templates/form.html");
+	promiseArr[7] = $.get("../templates/select.html");
+	promiseArr[8] = $.get("../templates/option.html");
+	promiseArr[9] = $.get("../templates/number-field.html");
 
 	Promise.all(promiseArr).then(dataArr => {
 
@@ -25,6 +28,9 @@ $(() => {
 		Templates.pill = dataArr[4];
 		Templates.pane = dataArr[5];
 		Templates.form = dataArr[6];
+		Templates.select = dataArr[7];
+		Templates.option = dataArr[8];
+		Templates.numberField = dataArr[9];
 
 		for (let i = 1; i <= 16; i++) {
 
@@ -52,7 +58,7 @@ $(() => {
 });
 
 function getForms(obj, Templates, i) {
-	let forms = "";
+	let forms = "<h5 class='form-header'>Slot " + i + "</h5>";
 	for (let key in obj) {
 		if (typeof obj[key].Bits === "number") {
 			let oneform = Templates.form.replaceAll("{{NUMBER}}", i)

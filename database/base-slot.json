@@ -31,14 +31,6 @@
 			"ToHexString": "202BD59"
 		}
 	},
-	"TurnStatus": {
-		"Bits": 8,
-		"BitCode": "3",
-		"Address": {
-			"ToDecimal": 33733980,
-			"ToHexString": "202BD5C"
-		}
-	},
 	"HiddenStatus": {
 		"Bits": 8,
 		"BitCode": "3",
@@ -362,63 +354,5 @@
 			"ToDecimal": 33734016,
 			"ToHexString": "202BD80"
 		}
-	},
-	"Support": [
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734017,
-				"ToHexString": "202BD81"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734018,
-				"ToHexString": "202BD82"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734019,
-				"ToHexString": "202BD83"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734020,
-				"ToHexString": "202BD84"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734021,
-				"ToHexString": "202BD85"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734022,
-				"ToHexString": "202BD86"
-			}
-		},
-		{
-			"Bits": 8,
-			"BitCode": "3",
-			"Address": {
-				"ToDecimal": 33734023,
-				"ToHexString": "202BD87"
-			}
-		}
-	]
+	}
 }
