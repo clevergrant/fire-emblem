@@ -55,7 +55,33 @@ function getForms(obj, Templates, i) {
 	let forms = "";
 	for (let key in obj) {
 		if (typeof obj[key].Bits === "number") {
-			let oneform = Templates.form.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+			let oneform = Templates.form.replaceAll("{{NUMBER}}", i)
+				.replaceAll("{{KEY}}", key);
+
+			switch (key) {
+				case "0":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					break;
+				case "1":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					break;
+				case "2":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					break;
+				case "3":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					break;
+				case "4":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Item " + key);
+					break;
+				case "Support":
+					oneform = oneform.replaceAll("{{KEYNAME}}", "Hero " + (parseInt(key) + 1).toString());
+					break;
+				default:
+					oneform = oneform.replaceAll("{{KEYNAME}}", key);
+					break;
+			}
+
 			if (first) oneform = oneform.replaceAll("{{ADDRESS}}", obj[key].BitCode + obj[key].Address.ToDecimal.toString(16).toUpperCase());
 			else {
 				let newAddress = obj[key].Address.ToDecimal + (72 * (i - 1));
@@ -64,7 +90,26 @@ function getForms(obj, Templates, i) {
 			forms += oneform;
 		}
 		else {
-			forms += "<h4>" + key + "</h4>";
+			switch (key) {
+				case "0":
+					forms += "<p>Slot 1</p>";
+					break;
+				case "1":
+					forms += "<p>Slot 2</p>";
+					break;
+				case "2":
+					forms += "<p>Slot 3</p>";
+					break;
+				case "3":
+					forms += "<p>Slot 4</p>";
+					break;
+				case "4":
+					forms += "<p>Slot 5</p>";
+					break;
+				default:
+					forms += "<p>" + key + "</p>";
+					break;
+			}
 			forms += getForms(obj[key], Templates, i);
 		}
 	}
