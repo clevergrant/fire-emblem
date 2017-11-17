@@ -6,25 +6,31 @@ $(() => {
 	//*
 	let promiseArr = [];
 
-	promiseArr[0] = $.getJSON("../database/base-slot.json");
-	promiseArr[1] = $.get("../templates/pill.html");
-	promiseArr[2] = $.get("../templates/pane.html");
-	promiseArr[3] = $.get("../templates/form.html");
-	promiseArr[4] = $.get("../templates/select.html");
-	promiseArr[5] = $.get("../templates/option.html");
-	promiseArr[6] = $.get("../templates/number-field.html");
+	promiseArr[0] = $.getJSON("../database/items.json");
+	promiseArr[1] = $.getJSON("../database/portraits.json");
+	promiseArr[2] = $.getJSON("../database/classes.json");
+	promiseArr[3] = $.getJSON("../database/base-slot.json");
+	promiseArr[4] = $.get("../templates/pill.html");
+	promiseArr[5] = $.get("../templates/pane.html");
+	promiseArr[6] = $.get("../templates/form.html");
+	promiseArr[7] = $.get("../templates/select.html");
+	promiseArr[8] = $.get("../templates/option.html");
+	promiseArr[9] = $.get("../templates/number-field.html");
 
 	Promise.all(promiseArr).then(dataArr => {
 
-		let baseSlot = dataArr[0];
+		let items = dataArr[0];
+		let portraits = dataArr[1];
+		let classes = dataArr[2];
+		let baseSlot = dataArr[3];
 
 		let Templates = {};
-		Templates.pill = dataArr[1];
-		Templates.pane = dataArr[2];
-		Templates.form = dataArr[3];
-		Templates.select = dataArr[4];
-		Templates.option = dataArr[5];
-		Templates.numberField = dataArr[6];
+		Templates.pill = dataArr[4];
+		Templates.pane = dataArr[5];
+		Templates.form = dataArr[6];
+		Templates.select = dataArr[7];
+		Templates.option = dataArr[8];
+		Templates.numberField = dataArr[9];
 
 		for (let i = 1; i <= 16; i++) {
 
@@ -41,7 +47,7 @@ $(() => {
 			if (first) thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "show active");
 			else thisPane = thisPane.replaceAll("{{SHOWACTIVE}}", "");
 
-			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(baseSlot, Templates, i));
+			thisPane = thisPane.replaceAll("{{CONTENT}}", getForms(baseSlot, Templates, i, portraits, classes, items));
 
 			$("#v-pills-tabContent").append(thisPane);
 
@@ -51,31 +57,43 @@ $(() => {
 	//*/
 });
 
-function getForms(obj, Templates, i) {
+function getForms(obj, Templates, i, portraits, classes, items) {
 	let forms = "";
 	for (let key in obj) {
 		if (typeof obj[key].Bits === "number") {
-			let oneform = Templates.form.replaceAll("{{NUMBER}}", i)
-				.replaceAll("{{KEY}}", key);
+			let oneform = "";
+			oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+
+			let options = "";
 
 			switch (key) {
 				case "Portrait":
-					let options = "";
-					$.getJSON("../database/portraits.json").done(characters => {
-						for (let code of characters) {
-							console.log(code);
-						}
-					});
-
-					oneform = oneform.replaceAll("{{FIELD}}", Templates
-						.select.replaceAll("{{KEY}}", key)
-						.replaceAll("{{OPTIONS}}", options)
-					);
+					oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					let portKeys = Object.keys(portraits).sort();
+					for (let key of portKeys) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", portraits[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
 					break;
-				case "QuantityType":
+				case "Class":
+					oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					options = "";
+					let classKeys = Object.keys(classes.Usable).sort();
+					for (let key of classKeys) options += Templates.option.replaceAll("{{KEY}}", key).replaceAll("{{CODE}}", classes.Usable[key]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					break;
+				case "Level":
+					oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
+						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
+						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "20"));
+					break;
+				case "Experience":
+					oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
+						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
+						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "99"));
 					break;
 				default:
-					oneform = oneform.replaceAll("{{KEYNAME}}", key);
 					break;
 			}
 
@@ -84,7 +102,7 @@ function getForms(obj, Templates, i) {
 				let newAddress = obj[key].Address.ToDecimal + (72 * (i - 1));
 				oneform = oneform.replaceAll("{{ADDRESS}}", obj[key].BitCode + newAddress.toString(16).toUpperCase());
 			}
-			forms += oneform;
+			if (key != "QuantityType") forms += oneform;
 		}
 		else {
 			switch (key) {
@@ -107,7 +125,7 @@ function getForms(obj, Templates, i) {
 					forms += "<h5 class='form-header'>" + key + "</h5>";
 					break;
 			}
-			forms += getForms(obj[key], Templates, i);
+			forms += getForms(obj[key], Templates, i, portraits, classes, items);
 		}
 	}
 	return forms;
