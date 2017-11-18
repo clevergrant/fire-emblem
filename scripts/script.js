@@ -62,7 +62,7 @@ $(() => {
 			}
 		});
 		$("input.Experience-field").change(e => {
-			if ($(e.target).val() > 99) $(e.target).val(99);
+			if ($(e.target).val() > 99) $(e.target).val(255);
 			if ($(e.target).val() < 1) $(e.target).val(1);
 		});
 		$("input.Maximum-field").change(e => {
