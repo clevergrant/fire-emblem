@@ -119,48 +119,39 @@ function getForms(object, i, Templates, Codes) {
 	for (let key in object) {
 		if (typeof object[key].Bits === "number") {
 			let oneform = "";
-			oneform = Templates.form.replaceAll("{{KEYNAME}}", key).replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
+			oneform = Templates.form.replaceAll("{{KEYNAME}}", key);
 
 			let options = "";
 
 			switch (key) {
 				case "Portrait":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					options = "";
 					let portKeys = Object.keys(Codes.Portraits).sort();
-					for (let subkey of portKeys) options += Templates.option.replaceAll("{{KEY}}", subkey).replaceAll("{{CODE}}", Codes.Portraits[subkey]);
-					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					for (let subkey of portKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Portraits[subkey]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Class":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					options = "";
 					let classKeys = Object.keys(Codes.Classes.Usable).sort();
-					for (let subkey of classKeys) options += Templates.option.replaceAll("{{KEY}}", subkey).replaceAll("{{CODE}}", Codes.Classes.Usable[subkey]);
-					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					for (let subkey of classKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Classes.Usable[subkey]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Level":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "20"));
 					break;
 				case "Experience":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "99"));
 					break;
 				case "Hidden Status":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key.split(' ').join('-'));
 					options = "";
-					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{KEY}}", subkey).replaceAll("{{CODE}}", Codes.Statuses[subkey]);
-					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key.split(' ').join('-')).replaceAll("{{OPTIONS}}", options));
+					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{ADDRESS}}", Codes.Statuses[subkey]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Maximum":
 				case "Current":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "60"));
 					break;
 				case "Strength":
@@ -168,27 +159,19 @@ function getForms(object, i, Templates, Codes) {
 				case "Speed":
 				case "Defense":
 				case "Luck":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "30"));
 					break;
 				case "Constitution":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "25"));
 					break;
 				case "Rescue":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "24"));
 					break;
 				case "Move":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key).replaceAll("{{NUMBER}}", i)
 						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "15"));
 					break;
 				case "Slot 1 Type":
@@ -196,21 +179,20 @@ function getForms(object, i, Templates, Codes) {
 				case "Slot 3 Type":
 				case "Slot 4 Type":
 				case "Slot 5 Type":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key.split(' ').join('-'));
 					options = "";
 					let itemKeys = Object.keys(Codes.Items).sort();
-					for (let subkey of itemKeys) options += Templates.option.replaceAll("{{KEY}}", subkey).replaceAll("{{CODE}}", Codes.Items[subkey]);
-					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key.split(' ').join('-')).replaceAll("{{OPTIONS}}", options));
+					for (let subkey of itemKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Items[subkey]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Slot 1 Quantity":
 				case "Slot 2 Quantity":
 				case "Slot 3 Quantity":
 				case "Slot 4 Quantity":
 				case "Slot 5 Quantity":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key.split(' ').join('-'));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{KEY}}", key.split(' ').join('-')).replaceAll("{{NUMBER}}", i)
-						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "255"));
+						.replaceAll("{{NUMBER}}", i)
+						.replaceAll("{{MIN}}", "1")
+						.replaceAll("{{MAX}}", "255"));
 					break;
 				case "Sword":
 				case "Lance":
@@ -220,10 +202,9 @@ function getForms(object, i, Templates, Codes) {
 				case "Anima":
 				case "Light":
 				case "Dark":
-					oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key);
 					options = "";
-					for (let subkey in Codes.Ranks) options += Templates.option.replaceAll("{{KEY}}", subkey).replaceAll("{{CODE}}", Codes.Ranks[subkey]);
-					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{KEY}}", key).replaceAll("{{OPTIONS}}", options));
+					for (let subkey in Codes.Ranks) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Ranks[subkey]);
+					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				default:
 					break;
@@ -232,7 +213,9 @@ function getForms(object, i, Templates, Codes) {
 			if (first) oneform = oneform.replaceAll("{{ADDRESS}}", object[key].BitCode + object[key].Address.ToDecimal.toString(16).toUpperCase());
 			else {
 				let newAddress = object[key].Address.ToDecimal + (72 * (i - 1));
-				oneform = oneform.replaceAll("{{ADDRESS}}", object[key].BitCode + newAddress.toString(16).toUpperCase());
+				oneform = oneform.replaceAll("{{NUMBER}}", i)
+					.replaceAll("{{KEY}}", key.split(' ').join('-'))
+					.replaceAll("{{ADDRESS}}", object[key].BitCode + newAddress.toString(16).toUpperCase());
 			}
 			if (key != "QuantityType") forms += oneform;
 		}
@@ -275,13 +258,13 @@ function getCodes() {
 	$(".code-check").each((index, element) => {
 		if ($(element).is(":checked")) {
 			let fieldId = $(element).data('field-id');
-			let desc = $(fieldId).html();
+			let desc = $(fieldId).val();
 			let CB = [
 				$(element).data('address'),
 				$(fieldId).val()
 			].join(' ');
 			console.log("code:", CB);
-			console.log("desc:", desc);
+			console.log("desc:", fieldId);
 		}
 	});
 }
