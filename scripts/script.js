@@ -213,10 +213,9 @@ function getForms(object, i, Templates, Codes) {
 			if (first) oneform = oneform.replaceAll("{{ADDRESS}}", object[key].BitCode + object[key].Address.ToDecimal.toString(16).toUpperCase());
 			else {
 				let newAddress = object[key].Address.ToDecimal + (72 * (i - 1));
-				oneform = oneform.replaceAll("{{NUMBER}}", i)
-					.replaceAll("{{KEY}}", key.split(' ').join('-'))
-					.replaceAll("{{ADDRESS}}", object[key].BitCode + newAddress.toString(16).toUpperCase());
+				oneform = oneform.replaceAll("{{ADDRESS}}", object[key].BitCode + newAddress.toString(16).toUpperCase());
 			}
+			oneform = oneform.replaceAll("{{NUMBER}}", i).replaceAll("{{KEY}}", key.split(' ').join('-'));
 			if (key != "QuantityType") forms += oneform;
 		}
 		else {
@@ -263,10 +262,10 @@ function getCodes() {
 				$(element).data('address'),
 				$(fieldId).val()
 			].join(' ');
-			console.log("code:", CB);
-			console.log("desc:", fieldId);
+			addCheat(CB, $(fieldId).attr('id'));
 		}
 	});
+	writeToFile();
 }
 
 function addCheat(code, desc) {
