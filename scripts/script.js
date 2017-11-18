@@ -142,7 +142,7 @@ function getForms(object, i, Templates, Codes) {
 					break;
 				case "Experience":
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.numberField
-						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "99"));
+						.replaceAll("{{MIN}}", "1").replaceAll("{{MAX}}", "100"));
 					break;
 				case "Hidden Status":
 					options = "";
