@@ -288,6 +288,7 @@ function getCodes() {
 			addCheat(CB, $(fieldId).attr('id'));
 		}
 	});
+	console.log("cheatList", cheatList);
 	writeToFile();
 }
 
@@ -322,7 +323,7 @@ function addCheat(code, desc) {
 }
 
 function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
-	cheatList[cheatNumber] = {
+	cheatList[cheatNumber + 2] = {
 		codeString: codeStr,
 		description: desc,
 		rawaddress: rawaddress,
@@ -343,8 +344,7 @@ function writeToFile() {
 	let type = getHexArr(0);
 	bar.set(type, 4);
 	bar.set(getHexArr(cheatNumber), 8);
-	console.log("binaary array after adding cheatNumber", bar);
-	for (let i = 2; i < cheatNumber + 2; i++) {
+	for (let i = 0; i < cheatNumber + 2; i++) {
 		let offset = 12 + (84 * i);
 		bar.set(getHexArr(cheatList[i].size), offset);
 		if (cheatList[i].type === 0) bar.set([255, 255, 255, 255], offset + 4);
@@ -405,7 +405,10 @@ let saveByteArray = (function () {
 		a.href = url;
 		a.download = name;
 		a.click();
-		window.URL.revokeObjectURL(url);
+		setTimeout(function () {
+			document.body.removeChild(a);
+			window.URL.revokeObjectURL(url);
+		}, 100);
 	};
 }());
 
