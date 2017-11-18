@@ -53,7 +53,7 @@ $(() => {
 		$("input.Level-field").change(e => {
 			let expid = "#" + $(e.target).attr('id').replaceAll("Level", "Experience");
 			if ($(e.target).val() >= 20) {
-				$(expid).attr('disabled', true).val("100");
+				$(expid).attr('disabled', true).val(255);
 				if ($(e.target).val() > 20) $(e.target).val(20);
 			}
 			else {
