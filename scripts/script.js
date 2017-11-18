@@ -1,7 +1,30 @@
 let first = true;
 let cheatNumber = 0;
-let cheatList = [];
 let codes = {};
+let cheatList = [
+	{
+		codeString: "00006777 000A",
+		description: "[M]",
+		rawaddress: 26487,
+		address: 26487,
+		value: 10,
+		size: 512,
+		type: 0,
+		enabled: 1,
+		status: 0
+	},
+	{
+		codeString: "10001BE0 0007",
+		description: "[M]",
+		rawaddress: 7136,
+		address: 26487,
+		value: 7,
+		size: 512,
+		type: 1,
+		enabled: 1,
+		status: 0
+	}
+];
 
 $(() => {
 	let promiseArr = [];
@@ -146,7 +169,7 @@ function getForms(object, i, Templates, Codes) {
 					break;
 				case "Hidden Status":
 					options = "";
-					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{ADDRESS}}", Codes.Statuses[subkey]);
+					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Statuses[subkey]);
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Maximum":
@@ -258,10 +281,10 @@ function getCodes() {
 		if ($(element).is(":checked")) {
 			let fieldId = $(element).data('field-id');
 			let desc = $(fieldId).val();
-			let CB = [
-				$(element).data('address'),
-				$(fieldId).val()
-			].join(' ');
+			let addr = $(element).data('address');
+			let val = $(fieldId).val();
+			while (val.length < 4) val = "0" + val;
+			let CB = [addr, val].join(' ');
 			addCheat(CB, $(fieldId).attr('id'));
 		}
 	});
@@ -299,8 +322,7 @@ function addCheat(code, desc) {
 }
 
 function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
-	let j = cheatNumber;
-	cheatList[j] = {
+	cheatList[cheatNumber] = {
 		codeString: codeStr,
 		description: desc,
 		rawaddress: rawaddress,
@@ -321,7 +343,8 @@ function writeToFile() {
 	let type = getHexArr(0);
 	bar.set(type, 4);
 	bar.set(getHexArr(cheatNumber), 8);
-	for (let i = 0; i < cheatNumber; i++) {
+	console.log("binaary array after adding cheatNumber", bar);
+	for (let i = 2; i < cheatNumber + 2; i++) {
 		let offset = 12 + (84 * i);
 		bar.set(getHexArr(cheatList[i].size), offset);
 		if (cheatList[i].type === 0) bar.set([255, 255, 255, 255], offset + 4);
