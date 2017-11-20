@@ -310,7 +310,6 @@ function addCheat(code, desc) {
 			writeCheat(code, desc, rawaddress, rawaddress & 0x0FFFFFFF, value, 512, type);
 			break;
 		case 1:
-
 			writeCheat(code, desc, rawaddress, (rawaddress & 0x1FFFFFF) | 0x08000000, value, 512, type);
 			break;
 		case 3:
