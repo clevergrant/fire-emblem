@@ -284,7 +284,7 @@ function getCodes() {
 			let fieldId = $(element).data('field-id');
 			let desc = $(fieldId).attr('id');
 			let addr = $(element).data('address');
-			let val = parseInt($(fieldId).val()).toString(16);
+			let val = parseInt($(fieldId).val()).toString(16).toUpperCase();
 			while (val.length < 4) val = "0" + val;
 			let CB = [addr, val].join(' ');
 			addCheat(CB, desc);
