@@ -347,8 +347,8 @@
 	},
 	"Statuses": {
 		"No Effect": "00",
-		"Afa's Drops": "10",
-		"Drop Last Item On Death": "20",
+		"Drop Last Item On Death": "10",
+		"Afa's Drops": "20",
 		"Afa's Drops, and Drop Last Item on Death": "30"
 	},
 	"Items": {
