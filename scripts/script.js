@@ -1,30 +1,7 @@
 let first = true;
-let cheatNumber = 0;
+let cheatNumber = 2;
 let codes = {};
-let cheatList = [
-	{
-		codeString: "00006777 000A",
-		description: "[M]",
-		rawaddress: 26487,
-		address: 26487,
-		value: 10,
-		size: 512,
-		type: 0,
-		enabled: 1,
-		status: 0
-	},
-	{
-		codeString: "10001BE0 0007",
-		description: "[M]",
-		rawaddress: 7136,
-		address: 26487,
-		value: 7,
-		size: 512,
-		type: 1,
-		enabled: 1,
-		status: 0
-	}
-];
+let cheatList = [];
 
 $(() => {
 	let promiseArr = [];
@@ -150,13 +127,13 @@ function getForms(object, i, Templates, Codes) {
 				case "Portrait":
 					options = "";
 					let portKeys = Object.keys(Codes.Portraits).sort();
-					for (let subkey of portKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Portraits[subkey]);
+					for (let subkey of portKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", parseInt(Codes.Portraits[subkey], 16));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Class":
 					options = "";
 					let classKeys = Object.keys(Codes.Classes.Usable).sort();
-					for (let subkey of classKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Classes.Usable[subkey]);
+					for (let subkey of classKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", parseInt(Codes.Classes.Usable[subkey], 16));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Level":
@@ -169,7 +146,7 @@ function getForms(object, i, Templates, Codes) {
 					break;
 				case "Hidden Status":
 					options = "";
-					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Statuses[subkey]);
+					for (let subkey in Codes.Statuses) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", parseInt(Codes.Statuses[subkey], 16));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Maximum":
@@ -204,7 +181,7 @@ function getForms(object, i, Templates, Codes) {
 				case "Slot 5 Type":
 					options = "";
 					let itemKeys = Object.keys(Codes.Items).sort();
-					for (let subkey of itemKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Items[subkey]);
+					for (let subkey of itemKeys) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", parseInt(Codes.Items[subkey], 16));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				case "Slot 1 Quantity":
@@ -226,7 +203,7 @@ function getForms(object, i, Templates, Codes) {
 				case "Light":
 				case "Dark":
 					options = "";
-					for (let subkey in Codes.Ranks) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", Codes.Ranks[subkey]);
+					for (let subkey in Codes.Ranks) options += Templates.option.replaceAll("{{SUBKEY}}", subkey).replaceAll("{{VALUE}}", parseInt(Codes.Ranks[subkey], 16));
 					oneform = oneform.replaceAll("{{FIELD}}", Templates.select.replaceAll("{{OPTIONS}}", options));
 					break;
 				default:
@@ -277,15 +254,40 @@ function getForms(object, i, Templates, Codes) {
 }
 
 function getCodes() {
+	cheatList = [
+		{
+			codeString: "00006777 000A",
+			description: "[M]",
+			rawaddress: 26487,
+			address: 26487,
+			value: 10,
+			size: 512,
+			type: 0,
+			enabled: 1,
+			status: 0
+		},
+		{
+			codeString: "10001BE0 0007",
+			description: "[M]",
+			rawaddress: 268442592,
+			address: 134224864,
+			value: 7,
+			size: 512,
+			type: 1,
+			enabled: 1,
+			status: 0
+		}
+	];
+	cheatNumber = 2;
 	$(".code-check").each((index, element) => {
 		if ($(element).is(":checked")) {
 			let fieldId = $(element).data('field-id');
-			let desc = $(fieldId).val();
+			let desc = $(fieldId).attr('id');
 			let addr = $(element).data('address');
-			let val = $(fieldId).val();
+			let val = parseInt($(fieldId).val()).toString(16).toUpperCase();
 			while (val.length < 4) val = "0" + val;
 			let CB = [addr, val].join(' ');
-			addCheat(CB, $(fieldId).attr('id'));
+			addCheat(CB, desc);
 		}
 	});
 	console.log("cheatList", cheatList);
@@ -300,21 +302,21 @@ function addCheat(code, desc) {
 
 	let codeArr = code.split(' ');
 	let type = parseInt(codeArr[0].substr(0, 1), 16);
-	let address = parseInt(codeArr[0].substr(1), 16);
+	let rawaddress = parseInt(codeArr[0], 16);
 	let value = parseInt(codeArr[1], 16);
 
 	switch (type) {
 		case 0:
-			writeCheat(code, desc, address, address & 0x0FFFFFFF, value, 512, type);
+			writeCheat(code, desc, rawaddress, rawaddress & 0x0FFFFFFF, value, 512, type);
 			break;
 		case 1:
-			writeCheat(code, desc, address, (address & 0x1FFFFFF) | 0x08000000, value, 512, type);
+			writeCheat(code, desc, rawaddress, (rawaddress & 0x1FFFFFF) | 0x08000000, value, 512, type);
 			break;
 		case 3:
-			writeCheat(code, desc, address, address & 0x0FFFFFFF, value, 512, type);
+			writeCheat(code, desc, rawaddress, rawaddress & 0x0FFFFFFF, value, 512, type);
 			break;
 		case 8:
-			writeCheat(code, desc, address, address & 0x0FFFFFFE, value, 512, type);
+			writeCheat(code, desc, rawaddress, rawaddress & 0x0FFFFFFE, value, 512, type);
 			break;
 		default:
 			console.error("This site doesn't support that code.");
@@ -323,7 +325,7 @@ function addCheat(code, desc) {
 }
 
 function writeCheat(codeStr, desc, rawaddress, address, value, size, type) {
-	cheatList[cheatNumber + 2] = {
+	cheatList[cheatNumber] = {
 		codeString: codeStr,
 		description: desc,
 		rawaddress: rawaddress,
@@ -344,7 +346,7 @@ function writeToFile() {
 	let type = getHexArr(0);
 	bar.set(type, 4);
 	bar.set(getHexArr(cheatNumber), 8);
-	for (let i = 0; i < cheatNumber + 2; i++) {
+	for (let i = 0; i < cheatNumber; i++) {
 		let offset = 12 + (84 * i);
 		bar.set(getHexArr(cheatList[i].size), offset);
 		if (cheatList[i].type === 0) bar.set([255, 255, 255, 255], offset + 4);
