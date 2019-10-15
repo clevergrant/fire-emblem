@@ -28,7 +28,7 @@
 			"error"
 		],
 		"@typescript-eslint/member-naming": [
-			"error",
+			"warn",
 			{
 				"private": "^__",
 				"protected": "^_"
@@ -59,14 +59,7 @@
 				"allowSingleExtends": true
 			}
 		],
-		"@typescript-eslint/explicit-function-return-type": [
-			"warn",
-			{
-				"allowExpressions": false,
-				"allowTypedFunctionExpressions": true,
-				"allowHigherOrderFunctions": true
-			}
-		],
+		"@typescript-eslint/explicit-function-return-type": "off",
 		"no-unused-vars": "off",
 		"@typescript-eslint/no-unused-vars": [
 			"warn",
@@ -110,22 +103,6 @@
 		"yoda": [
 			"error",
 			"never"
-		],
-		"array-bracket-newline": [
-			"error",
-			{
-				"multiline": true
-			}
-		],
-		"array-bracket-spacing": [
-			"error",
-			"never"
-		],
-		"array-element-newline": [
-			"error",
-			{
-				"multiline": true
-			}
 		],
 		"block-spacing": "error",
 		"func-call-spacing": [

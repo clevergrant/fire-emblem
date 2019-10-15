@@ -1,0 +1,619 @@
+{
+	"size": {
+		"block": [17,17],
+		"item": [16,16]
+	},
+	"position":{
+		"item": [0,0]
+	},
+	"items": {
+		"Nothing": {
+			"code": "00",
+			"spot": [5,13]
+		},
+		"Iron Sword": {
+			"code": "01",
+			"spot": [0,0]
+		},
+		"Slim Sword": {
+			"code": "02",
+			"spot": [1,0]
+		},
+		"Steel Sword": {
+			"code": "03",
+			"spot": [2,0]
+		},
+		"Silver Sword": {
+			"code": "04",
+			"spot": [3,0]
+		},
+		"Iron Blade": {
+			"code": "05",
+			"spot": [4,0]
+		},
+		"Steel Blade": {
+			"code": "06",
+			"spot": [5,0]
+		},
+		"Silver Blade": {
+			"code": "07",
+			"spot": [6,0]
+		},
+		"Poison Sword": {
+			"code": "08",
+			"spot": [7,0]
+		},
+		"Rapier": {
+			"code": "09",
+			"spot": [8,0]
+		},
+		"Mani Katti": {
+			"code": "0A",
+			"spot": [9,0]
+		},
+		"Brave Sword": {
+			"code": "0B",
+			"spot": [10,0]
+		},
+		"Wo Dao": {
+			"code": "0C",
+			"spot": [11,0]
+		},
+		"Killing Edge": {
+			"code": "0D",
+			"spot": [12,0]
+		},
+		"Armorslayer": {
+			"code": "0E",
+			"spot": [13,0]
+		},
+		"Wyrmslayer": {
+			"code": "0F",
+			"spot": [14,0]
+		},
+		"Light Brand": {
+			"code": "10",
+			"spot": [15,0]
+		},
+		"Runesword": {
+			"code": "11",
+			"spot": [0,1]
+		},
+		"Lancereaver": {
+			"code": "12",
+			"spot": [2,1]
+		},
+		"Longsword": {
+			"code": "13",
+			"spot": [3,1]
+		},
+		"Iron Lance": {
+			"code": "14",
+			"spot": [14,1]
+		},
+		"Slim Lance": {
+			"code": "15",
+			"spot": [15,1]
+		},
+		"Steel Lance": {
+			"code": "16",
+			"spot": [0,2]
+		},
+		"Silver Lance": {
+			"code": "17",
+			"spot": [1,2]
+		},
+		"Poison Lance": {
+			"code": "18",
+			"spot": [2,2]
+		},
+		"Brave Lance": {
+			"code": "19",
+			"spot": [3,2]
+		},
+		"Killer Lance": {
+			"code": "1A",
+			"spot": [4,2]
+		},
+		"Horseslayer": {
+			"code": "1B",
+			"spot": [5,2]
+		},
+		"Javelin": {
+			"code": "1C",
+			"spot": [6,2]
+		},
+		"Spear": {
+			"code": "1D",
+			"spot": [7,2]
+		},
+		"Axereaver": {
+			"code": "1E",
+			"spot": [9,2]
+		},
+		"Iron Axe": {
+			"code": "1F",
+			"spot": [8,3]
+		},
+		"Steel Axe": {
+			"code": "20",
+			"spot": [9,3]
+		},
+		"Silver Axe": {
+			"code": "21",
+			"spot": [10,3]
+		},
+		"Poison Axe": {
+			"code": "22",
+			"spot": [11,3]
+		},
+		"Brave Axe": {
+			"code": "23",
+			"spot": [12,3]
+		},
+		"Killer Axe": {
+			"code": "24",
+			"spot": [13,3]
+		},
+		"Halberd": {
+			"code": "25",
+			"spot": [14,3]
+		},
+		"Hammer": {
+			"code": "26",
+			"spot": [15,3]
+		},
+		"Devil Axe": {
+			"code": "27",
+			"spot": [1,4]
+		},
+		"Hand Axe": {
+			"code": "28",
+			"spot": [2,4]
+		},
+		"Tomahawk": {
+			"code": "29",
+			"spot": [3,4]
+		},
+		"Swordreaver": {
+			"code": "2A",
+			"spot": [4,4]
+		},
+		"Swordslayer": {
+			"code": "2B",
+			"spot": [5,4]
+		},
+		"Iron Bow": {
+			"code": "2C",
+			"spot": [11,4]
+		},
+		"Steel Bow": {
+			"code": "2D",
+			"spot": [12,4]
+		},
+		"Silver Bow": {
+			"code": "2E",
+			"spot": [13,4]
+		},
+		"Poison Bow": {
+			"code": "2F",
+			"spot": [14,4]
+		},
+		"Killer Bow": {
+			"code": "30",
+			"spot": [15,4]
+		},
+		"Brave Bow": {
+			"code": "31",
+			"spot": [0,5]
+		},
+		"Short Bow": {
+			"code": "32",
+			"spot": [1,5]
+		},
+		"Long Bow": {
+			"code": "33",
+			"spot": [2,5]
+		},
+		"Ballista": {
+			"code": "34",
+			"spot": [7,5]
+		},
+		"Iron ballista": {
+			"code": "35",
+			"spot": [8,5]
+		},
+		"Killer ballista": {
+			"code": "36",
+			"spot": [9,5]
+		},
+		"Fire": {
+			"code": "37",
+			"spot": [10,5]
+		},
+		"Thunder": {
+			"code": "38",
+			"spot": [12,5]
+		},
+		"Elfire": {
+			"code": "39",
+			"spot": [13,5]
+		},
+		"Bolting": {
+			"code": "3A",
+			"spot": [14,5]
+		},
+		"Fimbulvetr": {
+			"code": "3B",
+			"spot": [15,5]
+		},
+		"Forblaze": {
+			"code": "3C",
+			"spot": [0,6]
+		},
+		"Excalibur": {
+			"code": "3D",
+			"spot": [1,6]
+		},
+		"Lightning": {
+			"code": "3E",
+			"spot": [2,6]
+		},
+		"Shine": {
+			"code": "3F",
+			"spot": [3,6]
+		},
+		"Divine": {
+			"code": "40",
+			"spot": [4,6]
+		},
+		"Purge": {
+			"code": "41",
+			"spot": [5,6]
+		},
+		"Aura": {
+			"code": "42",
+			"spot": [6,6]
+		},
+		"Luce": {
+			"code": "43",
+			"spot": [8,6]
+		},
+		"Flux": {
+			"code": "44",
+			"spot": [11,6]
+		},
+		"Luna": {
+			"code": "45",
+			"spot": [12,6]
+		},
+		"Nosferatu": {
+			"code": "46",
+			"spot": [14,6]
+		},
+		"Eclipse": {
+			"code": "47",
+			"spot": [15,6]
+		},
+		"Fenrir": {
+			"code": "48",
+			"spot": [1,7]
+		},
+		"Gespenst": {
+			"code": "49",
+			"spot": [3,7]
+		},
+		"Heal": {
+			"code": "4A",
+			"spot": [9,7]
+		},
+		"Mend": {
+			"code": "4B",
+			"spot": [10,7]
+		},
+		"Recover": {
+			"code": "4C",
+			"spot": [11,7]
+		},
+		"Physic": {
+			"code": "4D",
+			"spot": [12,7]
+		},
+		"Fortify": {
+			"code": "4E",
+			"spot": [13,7]
+		},
+		"Restore": {
+			"code": "4F",
+			"spot": [14,7]
+		},
+		"Silence": {
+			"code": "50",
+			"spot": [15,7]
+		},
+		"Sleep": {
+			"code": "51",
+			"spot": [0,8]
+		},
+		"Berserk": {
+			"code": "52",
+			"spot": [1,8]
+		},
+		"Warp": {
+			"code": "53",
+			"spot": [2,8]
+		},
+		"Rescue": {
+			"code": "54",
+			"spot": [3,8]
+		},
+		"Torch Staff": {
+			"code": "55",
+			"spot": [4,8]
+		},
+		"Hammerne": {
+			"code": "56",
+			"spot": [5,8]
+		},
+		"Unlock": {
+			"code": "57",
+			"spot": [6,8]
+		},
+		"Barrier": {
+			"code": "58",
+			"spot": [7,8]
+		},
+		"Dragon Axe": {
+			"code": "59",
+			"spot": [6,4]
+		},
+		"Angelic robe": {
+			"code": "5A",
+			"spot": [15,11]
+		},
+		"Energy ring": {
+			"code": "5B",
+			"spot": [0,9]
+		},
+		"Secret book": {
+			"code": "5C",
+			"spot": [7,7]
+		},
+		"Speedwings": {
+			"code": "5D",
+			"spot": [5,10]
+		},
+		"Goddess icon": {
+			"code": "5E",
+			"spot": [6,10]
+		},
+		"Dragonshield": {
+			"code": "5F",
+			"spot": [9,9]
+		},
+		"Talisman": {
+			"code": "60",
+			"spot": [11,10]
+		},
+		"Boots": {
+			"code": "61",
+			"spot": [4,10]
+		},
+		"Body ring": {
+			"code": "62",
+			"spot": [1,9]
+		},
+		"Hero crest": {
+			"code": "63",
+			"spot": [10,9]
+		},
+		"Knight crest": {
+			"code": "64",
+			"spot": [11,9]
+		},
+		"Orion's bolt": {
+			"code": "65",
+			"spot": [0,12]
+		},
+		"Elysian whip": {
+			"code": "66",
+			"spot": [1,12]
+		},
+		"Guiding ring": {
+			"code": "67",
+			"spot": [8,9]
+		},
+		"Chest key": {
+			"code": "68",
+			"spot": [12,8]
+		},
+		"Door key": {
+			"code": "69",
+			"spot": [13,8]
+		},
+		"Lockpick": {
+			"code": "6A",
+			"spot": [15,8]
+		},
+		"Vulnerary": {
+			"code": "6B",
+			"spot": [6,11]
+		},
+		"Elixir": {
+			"code": "6C",
+			"spot": [7,11]
+		},
+		"Pure water": {
+			"code": "6D",
+			"spot": [8,11]
+		},
+		"Antitoxin": {
+			"code": "6E",
+			"spot": [9,11]
+		},
+		"Torch": {
+			"code": "6F",
+			"spot": [7,7]
+		},
+		"Delphi Shield": {
+			"code": "70",
+			"spot": [14,11]
+		},
+		"Member Card": {
+			"code": "71",
+			"spot": [1,11]
+		},
+		"Silver Card": {
+			"code": "72",
+			"spot": [2,11]
+		},
+		"White gem": {
+			"code": "73",
+			"spot": [12,10]
+		},
+		"Blue gem": {
+			"code": "74",
+			"spot": [13,10]
+		},
+		"Red gem": {
+			"code": "75",
+			"spot": [14,10]
+		},
+		"Gold": {
+			"code": "76",
+			"spot": [10,11]
+		},
+		"Vaida's Spear": {
+			"code": "77",
+			"spot": [8,2]
+		},
+		"Chest keys": {
+			"code": "78",
+			"spot": [12,8]
+		},
+		"Mine": {
+			"code": "79",
+			"spot": [11,11]
+		},
+		"Light rune": {
+			"code": "7A",
+			"spot": [14,9]
+		},
+		"Iron rune": {
+			"code": "7B",
+			"spot": [15,9]
+		},
+		"Filla's Might": {
+			"code": "7C",
+			"spot": [2,9]
+		},
+		"Ninis's Grace": {
+			"code": "7D",
+			"spot": [3,9]
+		},
+		"Thor's Ire": {
+			"code": "7E",
+			"spot": [4,9]
+		},
+		"Set's Litany": {
+			"code": "7F",
+			"spot": [5,9]
+		},
+		"Emblem blade": {
+			"code": "80",
+			"spot": [4,1]
+		},
+		"Emblem lance": {
+			"code": "81",
+			"spot": [10,2]
+		},
+		"Emblem axe": {
+			"code": "82",
+			"spot": [7,3]
+		},
+		"Emblem bow": {
+			"code": "83",
+			"spot": [3,5]
+		},
+		"Durandal": {
+			"code": "84",
+			"spot": [5,1]
+		},
+		"Armads": {
+			"code": "85",
+			"spot": [10,4]
+		},
+		"Aureola": {
+			"code": "86",
+			"spot": [10,6]
+		},
+		"Earth seal": {
+			"code": "87",
+			"spot": [1,10]
+		},
+		"Afa's Drops": {
+			"code": "88",
+			"spot": [12,11]
+		},
+		"Heaven seal": {
+			"code": "89",
+			"spot": [2,10]
+		},
+		"Emblem seal": {
+			"code": "8A",
+			"spot": [3,11]
+		},
+		"Fell contract": {
+			"code": "8B",
+			"spot": [4,11]
+		},
+		"Sol Katti": {
+			"code": "8C",
+			"spot": [6,1]
+		},
+		"Wolf Beil": {
+			"code": "8D",
+			"spot": [7,4]
+		},
+		"Ereshkigal": {
+			"code": "8E",
+			"spot": [5,7]
+		},
+		"Flametongue": {
+			"code": "8F",
+			"spot": [7,10]
+		},
+		"Regal blade": {
+			"code": "90",
+			"spot": [7,1]
+		},
+		"Rex Hasta": {
+			"code": "91",
+			"spot": [11,2]
+		},
+		"Basilikos": {
+			"code": "92",
+			"spot": [8,4]
+		},
+		"Reinfleche": {
+			"code": "93",
+			"spot": [4,5]
+		},
+		"Heavy spear": {
+			"code": "94",
+			"spot": [12,2]
+		},
+		"Short spear": {
+			"code": "95",
+			"spot": [13,2]
+		},
+		"Ocean seal": {
+			"code": "96",
+			"spot": [12,9]
+		},
+		"Wind Sword": {
+			"code": "99",
+			"spot": [8,1]
+		}
+	}
+}

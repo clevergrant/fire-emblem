@@ -1,0 +1,477 @@
+{
+	"size": {
+		"block": [128,112],
+		"portrait": [96,80],
+		"chibi": [32,32]
+	},
+	"position":{
+		"portrait": [0,0],
+		"chibi": [96,16]
+	},
+	"portraits": {
+		"Eliwood": {
+			"code": "CE4C",
+			"spot": [0,0]
+		},
+		"Hector": {
+			"code": "CE80",
+			"spot": [2,1]
+		},
+		"Lyn": {
+			"code": "CEB4",
+			"spot": [5,2]
+		},
+		"Raven": {
+			"code": "CEE8",
+			"spot": [2,4]
+		},
+		"Geitz": {
+			"code": "CF1C",
+			"spot": [3,4]
+		},
+		"Guy": {
+			"code": "CF50",
+			"spot": [4,5]
+		},
+		"Karel": {
+			"code": "CF84",
+			"spot": [5,4]
+		},
+		"Dorcas": {
+			"code": "CFB8",
+			"spot": [6,4]
+		},
+		"Bartre": {
+			"code": "CFEC",
+			"spot": [0,5]
+		},
+		"Citizen": {
+			"code": "D020",
+			"spot": [4,30]
+		},
+		"Oswin": {
+			"code": "D054",
+			"spot": [1,5]
+		},
+		"Fargus": {
+			"code": "D088",
+			"spot": [2,10]
+		},
+		"Wil": {
+			"code": "D0BC",
+			"spot": [3,5]
+		},
+		"Rebecca": {
+			"code": "D0F0",
+			"spot": [2,9]
+		},
+		"Louise": {
+			"code": "D124",
+			"spot": [4,7]
+		},
+		"Lucius": {
+			"code": "D158",
+			"spot": [6,7]
+		},
+		"Serra": {
+			"code": "D18C",
+			"spot": [0,8]
+		},
+		"Renault": {
+			"code": "D1C0",
+			"spot": [6,8]
+		},
+		"Erk": {
+			"code": "D1F4",
+			"spot": [1,7]
+		},
+		"Nino": {
+			"code": "D228",
+			"spot": [2,7]
+		},
+		"Pent": {
+			"code": "D25C",
+			"spot": [3,7]
+		},
+		"Canas": {
+			"code": "D290",
+			"spot": [5,7]
+		},
+		"Kent": {
+			"code": "D2C4",
+			"spot": [0,6]
+		},
+		"Sain": {
+			"code": "D7D8",
+			"spot": [1,6]
+		},
+		"Lowen": {
+			"code": "D32C",
+			"spot": [2,6]
+		},
+		"Marcus": {
+			"code": "D360",
+			"spot": [3,6]
+		},
+		"Priscilla": {
+			"code": "D394",
+			"spot": [1,8]
+		},
+		"Rath": {
+			"code": "D3C8",
+			"spot": [6,5]
+		},
+		"Florina": {
+			"code": "D3FC",
+			"spot": [4,6]
+		},
+		"Fiora": {
+			"code": "D430",
+			"spot": [5,6]
+		},
+		"Farina": {
+			"code": "D464",
+			"spot": [2,8]
+		},
+		"Heath": {
+			"code": "D498",
+			"spot": [6,6]
+		},
+		"Vaida": {
+			"code": "D4CC",
+			"spot": [0,7]
+		},
+		"Hawkeye": {
+			"code": "D500",
+			"spot": [6,3]
+		},
+		"Matthew": {
+			"code": "D534",
+			"spot": [0,4]
+		},
+		"Jaffar": {
+			"code": "D568",
+			"spot": [1,4]
+		},
+		"Ninian": {
+			"code": "D59C",
+			"spot": [4,3]
+		},
+		"Nils": {
+			"code": "D5D0",
+			"spot": [3,8]
+		},
+		"Athos": {
+			"code": "D604",
+			"spot": [3,3]
+		},
+		"Merlinus": {
+			"code": "D638",
+			"spot": [4,9]
+		},
+		"Uther": {
+			"code": "D6A0",
+			"spot": [0,10]
+		},
+		"Wallace": {
+			"code": "D708",
+			"spot": [3,9]
+		},
+		"Dart": {
+			"code": "D874",
+			"spot": [2,5]
+		},
+		"Isadora": {
+			"code": "D8A8",
+			"spot": [0,9]
+		},
+		"Eleanora": {
+			"code": "D8DC",
+			"spot": [6,9]
+		},
+		"Legault": {
+			"code": "D910",
+			"spot": [4,4]
+		},
+		"Karla": {
+			"code": "D944",
+			"spot": [5,5]
+		},
+		"Harken": {
+			"code": "D978",
+			"spot": [1,9]
+		},
+		"Leila": {
+			"code": "D9AC",
+			"spot": [2,11]
+		},
+		"Bramimond": {
+			"code": "D9E0",
+			"spot": [6,11]
+		},
+		"Kishuna": {
+			"code": "DA14",
+			"spot": [4,16]
+		},
+		"Groznyi": {
+			"code": "DA48",
+			"spot": [3,14]
+		},
+		"Wire": {
+			"code": "DA7C",
+			"spot": [4,14]
+		},
+		"Bandit": {
+			"code": "DAB0",
+			"spot": [4,30]
+		},
+		"Zagan": {
+			"code": "DAE4",
+			"spot": [5,14]
+		},
+		"Boies": {
+			"code": "DB18",
+			"spot": [6,14]
+		},
+		"Puzon": {
+			"code": "DB4C",
+			"spot": [0,19]
+		},
+		"Santals": {
+			"code": "DBB4",
+			"spot": [1,14]
+		},
+		"Nergal": {
+			"code": "DBE8",
+			"spot": [4,12]
+		},
+		"Erik": {
+			"code": "DC1C",
+			"spot": [0,14]
+		},
+		"Sealen": {
+			"code": "DC50",
+			"spot": [0,15]
+		},
+		"Bauker": {
+			"code": "DC84",
+			"spot": [1,15]
+		},
+		"Bernard": {
+			"code": "DCB8",
+			"spot": [2,15]
+		},
+		"Damian": {
+			"code": "DCEC",
+			"spot": [3,15]
+		},
+		"Zoldam": {
+			"code": "DD20",
+			"spot": [4,15]
+		},
+		"Uhai": {
+			"code": "DD54",
+			"spot": [5,15]
+		},
+		"Aion": {
+			"code": "DD88",
+			"spot": [6,15]
+		},
+		"Darin": {
+			"code": "DDBC",
+			"spot": [6,13]
+		},
+		"Cameron": {
+			"code": "DDF0",
+			"spot": [1,16]
+		},
+		"Oleg": {
+			"code": "DE24",
+			"spot": [2,16]
+		},
+		"Eubans": {
+			"code": "DE58",
+			"spot": [3,16]
+		},
+		"Ursula": {
+			"code": "DE8C",
+			"spot": [4,17]
+		},
+		"Black Fang": {
+			"code": "DEC0",
+			"spot": [4,30]
+		},
+		"Paul": {
+			"code": "DEF4",
+			"spot": [5,16]
+		},
+		"Jasmine": {
+			"code": "DF28",
+			"spot": [6,16]
+		},
+		"Jerme Morph": {
+			"code": "DF90",
+			"spot": [1,21]
+		},
+		"Pascal": {
+			"code": "DFC4",
+			"spot": [0,17]
+		},
+		"Kenneth": {
+			"code": "DFF8",
+			"spot": [1,17]
+		},
+		"Jerme": {
+			"code": "E02C",
+			"spot": [2,17]
+		},
+		"Maxime": {
+			"code": "E060",
+			"spot": [3,17]
+		},
+		"Sonia": {
+			"code": "E094",
+			"spot": [6,12]
+		},
+		"Teodor": {
+			"code": "E0C8",
+			"spot": [5,17]
+		},
+		"Georg": {
+			"code": "E0FC",
+			"spot": [0,16]
+		},
+		"Kaim": {
+			"code": "E130",
+			"spot": [0,18]
+		},
+		"Merc": {
+			"code": "E164",
+			"spot": [4,30]
+		},
+		"Denning": {
+			"code": "E198",
+			"spot": [6,17]
+		},
+		"Bern": {
+			"code": "E1CC",
+			"spot": [4,30]
+		},
+		"Morph": {
+			"code": "E200",
+			"spot": [4,30]
+		},
+		"Lloyd": {
+			"code": "E234",
+			"spot": [1,13]
+		},
+		"Linus": {
+			"code": "E268",
+			"spot": [2,13]
+		},
+		"Laus": {
+			"code": "E3A0",
+			"spot": [4,30]
+		},
+		"Pirate": {
+			"code": "E408",
+			"spot": [3,30]
+		},
+		"Ostia": {
+			"code": "E4A4",
+			"spot": [4,30]
+		},
+		"Guardian": {
+			"code": "E50C",
+			"spot": [4,30]
+		},
+		"Caelin": {
+			"code": "E5DC",
+			"spot": [4,30]
+		},
+		"Zephiel": {
+			"code": "E6E0",
+			"spot": [3,10]
+		},
+		"Elbert": {
+			"code": "E714",
+			"spot": [1,10]
+		},
+		"Brendan": {
+			"code": "E8E8",
+			"spot": [0,13]
+		},
+		"Limstella": {
+			"code": "E91C",
+			"spot": [3,13]
+		},
+		"Dragon": {
+			"code": "E950",
+			"spot": [6,28]
+		},
+		"Batta": {
+			"code": "E984",
+			"spot": [1,18]
+		},
+		"Zugu": {
+			"code": "E9EC",
+			"spot": [2,18]
+		},
+		"Glass": {
+			"code": "EABC",
+			"spot": [3,18]
+		},
+		"Migal": {
+			"code": "EAF0",
+			"spot": [4,18]
+		},
+		"Carjiga": {
+			"code": "EC28",
+			"spot": [5,18]
+		},
+		"Bug": {
+			"code": "ED2C",
+			"spot": [6,18]
+		},
+		"Bool": {
+			"code": "EE64",
+			"spot": [1,19]
+		},
+		"Heintz": {
+			"code": "EFD0",
+			"spot": [2,19]
+		},
+		"Beyard": {
+			"code": "F13C",
+			"spot": [3,19]
+		},
+		"Yogi": {
+			"code": "F310",
+			"spot": [4,19]
+		},
+		"Eagler": {
+			"code": "F4B0",
+			"spot": [5,19]
+		},
+		"Lundgren": {
+			"code": "F61C",
+			"spot": [6,19]
+		},
+		"Tactician": {
+			"code": "F7BC",
+			"spot": [1,28]
+		},
+		"Rath's unit": {
+			"code": "FCD0",
+			"spot": [3,26]
+		},
+		"Lloyd Morph": {
+			"code": "FFA8",
+			"spot": [1,20]
+		},
+		"Linus Morph": {
+			"code": "FFDC",
+			"spot": [2,20]
+		}
+	}
+}
